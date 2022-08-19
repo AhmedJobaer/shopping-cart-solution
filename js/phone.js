@@ -2,7 +2,7 @@
 function updatePhoneNumber(isIncrease) {
     const phoneNumberFiled = document.getElementById('phone-number-filed');
     const phoneNumberString = phoneNumberFiled.value;
-    const previousPhoneNumber = parseFloat(phoneNumberString);
+    const previousPhoneNumber = parseInt(phoneNumberString);
 
     let newPhoneNumber;
     if (isIncrease === true) {
@@ -18,14 +18,18 @@ function updatePhoneNumber(isIncrease) {
 
 function updatePhoneTotalPrice(newPhoneNumber) {
     const phoneTotalPrice = newPhoneNumber * 1219;
-    console.log
     document.getElementById('phone-total').innerText = phoneTotalPrice;
 }
+
 
 document.getElementById('btn-phone-plus').addEventListener('click', function () {
     const newPhoneNumber = updatePhoneNumber(true);
 
     updatePhoneTotalPrice(newPhoneNumber)
+
+    //calulate total
+    calclulateSubTotal();
+
 })
 
 
@@ -33,4 +37,5 @@ document.getElementById('btn-phone-minus').addEventListener('click', function ()
     const newPhoneNumber = updatePhoneNumber(false);
 
     updatePhoneTotalPrice(newPhoneNumber);
+    calclulateSubTotal();
 })

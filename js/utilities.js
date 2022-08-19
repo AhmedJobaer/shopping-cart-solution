@@ -1,18 +1,16 @@
-// function updateCaseNumber(isIncrease, getId) {
-//     console.log(getId);
-//     const filedId = document.getElementById('getId');
-//     const filedIdString = filedId.value;
-//     console.log(filedIdString)
-//     // const previousFiledIdNumber = parseFloat(filedIdString);
+function getTextElementValueById(elementId) {
+    const phoneTotalElemnet = document.getElementById(elementId);
+    const currentPhoneTotalString = phoneTotalElemnet.innerText;
+    const currentPhoneTotal = parseInt(currentPhoneTotalString);
+    return currentPhoneTotal;
+}
 
-//     // let newFiledId;
-//     // if (isIncrease === true) {
-//     //     newFiledId = previousFiledIdNumber + 1;
-//     // }
-//     // else {
-//     //     newFiledId = previousFiledIdNumber - 1;
-//     // }
-//     // caseNumberFiled.value = newFiledId;
+function calclulateSubTotal() {
+    //calculate total
+    const currentPhoneTotal = getTextElementValueById('phone-total');
+    const currentCaseTotal = getTextElementValueById('case-total');
 
-//     // return newFiledId;
-// }
+    const currentSubTotal = currentPhoneTotal + currentCaseTotal;
+    const subTotalElement = document.getElementById('sub-total');
+    subTotalElement.innerText = currentSubTotal;
+}
